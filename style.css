@@ -1,0 +1,37 @@
+@font-face { font-family: News; src: url(fonts/Newsreader_400Regular.ttf); font-display: swap; }
+@font-face { font-family: News; font-style: italic; src: url(fonts/Newsreader_400Regular_Italic.ttf); font-display: swap; }
+@font-face { font-family: Inter; src: url(fonts/Inter_400Regular.ttf); font-display: swap; }
+
+:root { --bg: #f7f3ec; --text: #1c1917; --dim: #57534e; --accent: #a4561f; --card: #efe8dc; --rule: #e2d9ca; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #16130f; --text: #ede6da; --dim: #a8a29e; --accent: #e29a5b; --card: #221d17; --rule: #2e2820; }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 18px/1.7 News, Georgia, serif; }
+main { max-width: 42rem; margin: 0 auto; padding: 3.5rem 1rem 4rem; }
+a { color: var(--accent); }
+h1 { font-weight: 400; font-size: 3.2rem; line-height: 1; margin: 1rem 0 .4rem; letter-spacing: -.5px; }
+h2 { font-weight: 400; font-size: 1.3rem; margin: 2.2rem 0 .4rem; }
+.tag { font-style: italic; color: var(--accent); font-size: 1.35rem; margin: 0 0 2rem; }
+.sans { font-family: Inter, system-ui, sans-serif; }
+.meta { color: var(--dim); font: 14px/1.5 Inter, system-ui, sans-serif; }
+.wordmark { font-size: 4.6rem; margin-top: 0; padding-bottom: .1em;
+  background: linear-gradient(180deg, #f2c27d, #c0702f); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.downloads { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: .8rem; margin: 1rem 0 .6rem; }
+.button { display: block; text-decoration: none; background: var(--card); border: 1px solid var(--rule); border-radius: 18px;
+  padding: 1rem 1.2rem; transition: border-color .15s; }
+.button:hover { border-color: var(--accent); }
+.button b { display: block; font-weight: 400; font-size: 1.2rem; color: var(--text); }
+.button span { color: var(--accent); font: 15px/1.5 Inter, system-ui, sans-serif; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: .8rem; margin: 2rem 0; }
+.card { background: var(--card); border-radius: 18px; padding: 1rem 1.2rem; }
+.card b { font-weight: 400; font-size: 1.1rem; display: block; }
+.card span { color: var(--dim); font: 15px/1.5 Inter, system-ui, sans-serif; }
+.lead { font-size: 1.15rem; border-left: 2px solid var(--accent); padding-left: 1rem; }
+.badge { display: inline-block; font: 15px/1 Inter, system-ui, sans-serif; color: var(--dim); border: 1px solid var(--rule);
+  border-radius: 999px; padding: .6rem 1rem; }
+ul { padding-left: 1.2rem; }
+footer { margin-top: 3.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--dim);
+  font: 14px/1.6 Inter, system-ui, sans-serif; display: flex; gap: 1.2rem; flex-wrap: wrap; }
+footer a { color: var(--dim); }
