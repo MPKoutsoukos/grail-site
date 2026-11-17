@@ -1,34 +1,28 @@
 ﻿# grail-site
 
 The website for [grail](https://github.com/MPKoutsoukos/grail), at **https://grailnotebook.com**: the home page
-with the downloads, and the privacy policy that the apps and Google Play link to. Static files only (no build
-step), published by GitHub Pages from the `main` branch.
+(the grail method, its history, the app, downloads) and the privacy policy the apps link to. Static files only,
+no build step, no cookies, no analytics and no third-party requests; published by GitHub Pages from `main`.
 
 ```
-index.html          home page: what grail is, downloads (Android, Windows, Linux), why, open source
-privacy/index.html  privacy policy  ->  https://grailnotebook.com/privacy/
-style.css, fonts/   shared style; the app's own fonts (SIL Open Font License), no third-party requests
-icon.png, og.png    favicon and link preview
-CNAME               the custom domain: grailnotebook.com
+index.html           home page: hero, the method, "an old habit", features, downloads, credit
+privacy/index.html   privacy policy  ->  https://grailnotebook.com/privacy/
+style.css            the site's style (light paper tones, one dark band, motion with reduced-motion support)
+fonts/               the app's own fonts, served from the site, with their SIL Open Font License texts
+shots/               app screenshots (WebP)
+icon.png, og.png     favicon and link preview
+CNAME                the custom domain: grailnotebook.com
 ```
 
 The download buttons point to the `releases/latest` pages of
 [grail](https://github.com/MPKoutsoukos/grail/releases/latest) and
 [grail-desktop](https://github.com/MPKoutsoukos/grail-desktop/releases/latest), so they never need updating.
 
-## The domain
+## Hosting
 
-`grailnotebook.com` is registered at papaki.gr. Its DNS points at GitHub Pages:
-
-| Type | Name | Value |
-|---|---|---|
-| A | `@` (grailnotebook.com) | `185.199.108.153` |
-| A | `@` | `185.199.109.153` |
-| A | `@` | `185.199.110.153` |
-| A | `@` | `185.199.111.153` |
-| CNAME | `www` | `mpkoutsoukos.github.io` |
-
-GitHub Pages then serves the site over HTTPS (Settings → Pages → Enforce HTTPS).
+GitHub Pages serves the site over HTTPS (enforced). The domain's DNS points at GitHub Pages: four `A` records
+for the apex (`185.199.108.153` to `185.199.111.153`) and a `CNAME` for `www` to `mpkoutsoukos.github.io`.
+Mail records for the domain are separate and unaffected.
 
 ## Changing the privacy policy
 
@@ -37,4 +31,5 @@ the grail repo (`store/privacy.html`) the same.
 
 ## Licence
 
-The site's text and images: © 2026 MPKoutsoukos. The fonts keep their own licence (SIL Open Font License).
+The site's text and images: © 2026 MPKoutsoukos. The fonts keep their own licence (SIL Open Font License, see
+`fonts/*-OFL.txt`).
