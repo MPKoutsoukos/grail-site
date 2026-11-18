@@ -5,9 +5,9 @@ The website for [grail](https://github.com/MPKoutsoukos/grail), at **https://gra
 no build step, no cookies, no analytics and no third-party requests; published by GitHub Pages from `main`.
 
 ```
-index.html           home page: hero, the method, "an old habit", features, downloads, credit
+index.html           home page: one reading column (the idea, what it does, downloads, dated changes, colophon)
 privacy/index.html   privacy policy  ->  https://grailnotebook.com/privacy/
-style.css            the site's style (light paper tones, one dark band, motion with reduced-motion support)
+style.css            the site's style: paper and ink, Newsreader for reading, Inter for small labels
 fonts/               the app's own fonts, served from the site, with their SIL Open Font License texts
 shots/               app screenshots (WebP)
 icon.png, og.png     favicon and link preview
