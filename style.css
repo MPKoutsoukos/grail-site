@@ -54,6 +54,7 @@ h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.1; letter-spacing: -1
 .intro { color: var(--dim); font-size: 1.15rem; max-width: 40rem; margin: 0 0 2.5rem; }
 
 .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.grid.three { grid-template-columns: repeat(3, 1fr); margin-top: 3.5rem; }
 .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem;
   transition: transform .25s ease, box-shadow .25s ease; }
 .card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px -14px rgba(120, 70, 30, .3); }
@@ -137,6 +138,7 @@ footer .logo { font-size: 1.4rem; margin-right: auto; }
   .chip.c2 { right: 0; }
   .grid, .people { grid-template-columns: 1fr 1fr; }
   .features { grid-template-columns: 1fr; gap: 3rem; }
+  .grid.three { grid-template-columns: 1fr; }
   .nav nav a:not(.btn) { display: none; }
   section { padding: 3.5rem 0; }
 }
