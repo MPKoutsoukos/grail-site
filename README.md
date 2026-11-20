@@ -5,11 +5,11 @@ The website for [grail](https://github.com/MPKoutsoukos/grail), at **https://gra
 no build step, no cookies, no analytics and no third-party requests; published by GitHub Pages from `main`.
 
 ```
-index.html           home page: one reading column (the idea, what it does, downloads, dated changes, colophon)
+index.html           home page: plain HTML, terminal style (what, screenshots, how it works, download, changelog, faq)
 privacy/index.html   privacy policy  ->  https://grailnotebook.com/privacy/
-style.css            the site's style: paper and ink, Newsreader for reading, Inter for small labels
+style.css            one stylesheet: the system's monospace font, xterm-256 colours, no JavaScript
 fonts/               the app's own fonts, served from the site, with their SIL Open Font License texts
-shots/               app screenshots (WebP)
+shots/               screenshots of the desktop and Android apps (WebP)
 icon.png, og.png     favicon and link preview
 CNAME                the custom domain: grailnotebook.com
 ```

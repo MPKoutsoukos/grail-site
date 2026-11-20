@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>grail, a notebook for half-formed ideas</title>
-<meta name="description" content="grail is a notebook for the ideas that turn up half-formed. Write them down as they come; grail reads them back to you as one text. Free for Android, Windows and Linux.">
+<title>grail - a notebook for half-formed ideas</title>
+<meta name="description" content="grail is a notebook for half-formed ideas. Write them down as they come; grail reads them back as one text. Android, Windows, Linux. Free, GPL-3.0.">
 <meta property="og:title" content="grail">
-<meta property="og:description" content="Write it down now. Make sense of it later.">
+<meta property="og:description" content="A notebook for half-formed ideas. Plain markdown files, no account, no server.">
 <meta property="og:image" content="https://grailnotebook.com/og.png">
 <meta property="og:url" content="https://grailnotebook.com/">
 <meta name="twitter:card" content="summary_large_image">
@@ -14,111 +14,113 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="page">
 
-<header class="bar">
-  <a class="logo" href="./">grail</a>
-  <nav>
-    <a href="#get">Download</a>
-    <a href="#changes">Changes</a>
-    <a href="https://github.com/MPKoutsoukos/grail">Source</a>
-  </nav>
-</header>
+<pre class="logo" aria-label="grail">
+                 _ _
+  __ _ _ __ __ _(_) |
+ / _` | '__/ _` | | |
+| (_| | | | (_| | | |
+ \__, |_|  \__,_|_|_|
+ |___/
+</pre>
+<p class="tagline">a notebook for half-formed ideas. android, windows, linux. <span class="dim">v1.1.1</span></p>
 
-<main>
+<nav>
+  <a href="#download">download</a>
+  <a href="#screenshots">screenshots</a>
+  <a href="#how">how it works</a>
+  <a href="#changelog">changelog</a>
+  <a href="#faq">faq</a>
+  <a href="https://github.com/MPKoutsoukos/grail">source</a>
+  <a href="privacy/">privacy</a>
+</nav>
 
-<section class="opening">
-  <h1>Write it down now.<br>Make sense of it later.</h1>
-  <p>grail is a notebook for the ideas that turn up half-formed: on the bus, in the shower, in the middle of
-    something else. You write them down as they come, dated and unsorted. Later, grail reads them back to you as
-    one continuous text, and the good ones start to show.</p>
-  <p class="get-line">
-    <a href="https://github.com/MPKoutsoukos/grail/releases/latest">Get it for Android</a>
-    <span aria-hidden="true">·</span>
-    <a href="https://github.com/MPKoutsoukos/grail-desktop/releases/latest">Windows &amp; Linux</a>
-    <span class="quiet">Free, no account.</span>
-  </p>
-</section>
+<h2 id="what">## what</h2>
+<p>You write things down the moment they show up: on the bus, half asleep, in the middle of something else.
+Every note gets the date and time as its title, so you never have to name it or file it. Later, grail reads
+your notes back to you, oldest first, as one continuous text. Ideas that keep coming back start to stand out.</p>
+<p>That's the "grail method": one book for everything, kept messy, read back often. Leonardo, Darwin and
+centuries of commonplace books did the same with paper. It started from
+<a href="https://www.youtube.com/watch?v=_QVYfPnNOg4">a video by Perry Daniels</a>.</p>
 
-<figure class="shots">
-  <img src="shots/browse.webp" alt="grail on a phone: a list of dated, tagged notes" width="540" height="1200">
-  <img src="shots/read.webp" alt="grail's Read view: the same notes as one continuous text" width="540" height="1200">
-  <figcaption>Left, everything you've written, newest first. Right, the same notes in Read, oldest first, as one text.</figcaption>
+<h2 id="screenshots">## screenshots</h2>
+<figure>
+  <a href="shots/desktop-notes.webp"><img src="shots/desktop-notes.webp" alt="grail on the desktop: sidebar with tags, the list of notes, and the open note" width="1280" height="820"></a>
+  <figcaption>fig. 1: desktop. sidebar, notes, the open note.</figcaption>
 </figure>
+<figure>
+  <a href="shots/desktop-read.webp"><img src="shots/desktop-read.webp" alt="grail's Read view on the desktop: the notes as one text, oldest first" width="1280" height="820" loading="lazy"></a>
+  <figcaption>fig. 2: desktop. Read: the same notes as one text, oldest first.</figcaption>
+</figure>
+<div class="phones">
+  <figure><img src="shots/phone-notes.webp" alt="grail on Android: the list of notes" width="540" height="1200" loading="lazy"><figcaption>fig. 3: android. notes.</figcaption></figure>
+  <figure><img src="shots/phone-read.webp" alt="grail on Android: Read" width="540" height="1200" loading="lazy"><figcaption>fig. 4: android. Read.</figcaption></figure>
+  <figure><img src="shots/phone-note.webp" alt="grail on Android: writing a note" width="540" height="1200" loading="lazy"><figcaption>fig. 5: android. a note.</figcaption></figure>
+</div>
 
-<section>
-  <h2>One book, kept messy</h2>
-  <p>The idea isn't new. Keep every idea in the same book, the moment it arrives, and don't tidy it up. Then read
-    the book back, often. The ideas that keep returning are the ones worth something, and you only notice them
-    when they sit next to each other.</p>
-  <p>Leonardo's notebooks put flying machines next to shopping lists. Darwin drew his first tree of life in a pocket
-    notebook in 1837 and wrote “I think” above it. Scholars from Erasmus to Locke kept commonplace books of
-    everything worth keeping, and Niklas Luhmann wrote more than seventy books out of about 90,000 linked notes.
-    In <i>The Last Crusade</i>, Henry Jones Sr. carries a lifetime of clues in one battered grail diary. That's the
-    whole method, and grail is that book.</p>
-</section>
+<h2 id="how">## how it works</h2>
+<p>There is no database. A note is a markdown file with a small header, in a folder you pick:</p>
+<pre class="term"><span class="ps">$</span> ls ~/Documents/grail | tail -5
+1795152180000.md
+1795164060000.md
+grail-review.json
+grail-settings.json
+grail-views.json
 
-<section>
-  <h2>What it does</h2>
-  <dl class="things">
-    <dt>Notes without names</dt>
-    <dd>Every note gets the date and time as its title. You never have to decide what to call a thought, or where it goes.</dd>
-    <dt>Read</dt>
-    <dd>Your notes, oldest first, as one continuous text. Move a fragment, take it out of the read, or delete it right
-      there. Save the whole thing as Markdown or a PDF when you want a copy.</dd>
-    <dt>Tags</dt>
-    <dd>Write <code>#book</code> anywhere in a note and it's part of the book notebook, which has its own read.</dd>
-    <dt>Deleting is reversible</dt>
-    <dd>A deleted note gets the <code>#deleted</code> tag and stays out of sight until you search for it.</dd>
-    <dt>More than words</dt>
-    <dd>Drawings, pictures and tables sit next to the text. Links get a small preview, but only when you ask.</dd>
-    <dt>Your files</dt>
-    <dd>Each note is a plain Markdown file in a folder you choose. Open them in any editor and back them up however you
-      like. grail has no server and no account, so there's nothing to sign into and nothing to leak.</dd>
-  </dl>
-  <figure class="one">
-    <img src="shots/draw.webp" alt="grail's drawing canvas: a lighthouse sketched in a few strokes" width="540" height="1200" loading="lazy">
-    <figcaption>The pen canvas, for when a sketch says it faster.</figcaption>
-  </figure>
-</section>
+<span class="ps">$</span> cat 1795164060000.md
+<span class="dim">---
+id: '1795164060000'
+type: text
+title: '2026-11-20 10:41'
+tags: [book]
+created: 1795164060000
+updated: 1795164060000
+---</span>
+The bus idea: a map of every stop on the 22, drawn from memory, one stop per page. #book</pre>
+<ul>
+  <li><b>Read</b> gathers every note whose title is a date and time, oldest first. Move, take out or delete fragments right there.</li>
+  <li><b>#tags</b> anywhere in the text. Each tag is its own notebook with its own Read.</li>
+  <li><b>delete</b> adds <code>#deleted</code> to the note. It disappears everywhere until you search for <code>#deleted</code>.</li>
+  <li><b>other files</b>: plain markdown from other apps shows up too, titled by its file name.</li>
+  <li><b>network</b>: none, except link previews you ask for. No account, no server, no analytics, no ads.</li>
+</ul>
 
-<section id="get">
-  <h2>Download</h2>
-  <table class="downloads">
-    <tr><th>Android</th><td>Android 7 or newer</td><td><a href="https://github.com/MPKoutsoukos/grail/releases/latest">APK on GitHub</a></td></tr>
-    <tr><th>Windows</th><td>Windows 10 or 11</td><td><a href="https://github.com/MPKoutsoukos/grail-desktop/releases/latest">Installer (.exe or .msi)</a></td></tr>
-    <tr><th>Linux</th><td>64-bit</td><td><a href="https://github.com/MPKoutsoukos/grail-desktop/releases/latest">.deb or AppImage</a></td></tr>
-  </table>
-  <p class="quiet">Version 1.1.1, 18 November 2026. Free and open source under the GPL.</p>
-  <p class="quiet">The Windows installer isn't code-signed yet, so Windows may say “Windows protected your PC” the first
-    time. Click <b>More info</b>, then <b>Run anyway</b>.</p>
-</section>
+<h2 id="download">## download</h2>
+<table>
+  <tr><th>platform</th><th>file</th><th>needs</th></tr>
+  <tr><td>android</td><td><a href="https://github.com/MPKoutsoukos/grail/releases/latest">grail-1.1.1-47.apk</a></td><td>android 7+</td></tr>
+  <tr><td>windows</td><td><a href="https://github.com/MPKoutsoukos/grail-desktop/releases/latest">grail-1.1.1-47-windows-setup.exe</a> or .msi</td><td>windows 10/11</td></tr>
+  <tr><td>linux</td><td><a href="https://github.com/MPKoutsoukos/grail-desktop/releases/latest">grail-1.1.1-47-linux-amd64.deb</a> or .AppImage</td><td>x86_64</td></tr>
+</table>
+<p class="note"><span class="warn">!</span> the windows installer isn't code-signed yet. windows will say "Windows protected your PC";
+click <b>More info</b>, then <b>Run anyway</b>.</p>
 
-<section id="changes">
-  <h2>Changes</h2>
-  <ol class="log">
-    <li><b>1.1.1</b> <time datetime="2026-11-18">18 Nov 2026</time> The editor's button says Save. The desktop app no longer holds on to the previous version after an update.</li>
-    <li><b>1.1.0</b> <time datetime="2026-11-18">18 Nov 2026</time> A welcome and a short tour on first start. You choose the folder your notes live in. Deleted notes go to <code>#deleted</code>. Keyboard shortcuts on the desktop.</li>
-    <li><b>1.0.1</b> <time datetime="2026-11-17">17 Nov 2026</time> A rebuilt drawing canvas; the Android app is about a third smaller.</li>
-    <li><b>1.0.0</b> <time datetime="2026-11-16">16 Nov 2026</time> First release.</li>
-  </ol>
-</section>
+<h2 id="changelog">## changelog</h2>
+<pre class="term"><span class="ps">$</span> git log --oneline --releases
+<span class="hash">1.1.1</span> <span class="dim">2026-11-18</span>  editor button says Save; desktop stops serving an old version after updates
+<span class="hash">1.1.0</span> <span class="dim">2026-11-18</span>  welcome + tour; pick the notes folder; #deleted; desktop keyboard shortcuts
+<span class="hash">1.0.1</span> <span class="dim">2026-11-17</span>  new drawing canvas; android app about a third smaller
+<span class="hash">1.0.0</span> <span class="dim">2026-11-16</span>  first release</pre>
 
-<section class="colophon">
-  <p>grail is made by MPKoutsoukos, in Greece, and it's free software: the
-    <a href="https://github.com/MPKoutsoukos/grail">source is on GitHub</a>. It started from Perry Daniels'
-    <a href="https://www.youtube.com/watch?v=_QVYfPnNOg4">video on the grail method</a>. The app and this page are set
-    in Newsreader and Inter.</p>
-  <p>Bugs, questions and ideas are welcome at <a href="mailto:hello@grailnotebook.com">hello@grailnotebook.com</a> or
-    as a <a href="https://github.com/MPKoutsoukos/grail/issues">GitHub issue</a>.</p>
-</section>
+<h2 id="faq">## faq</h2>
+<dl>
+  <dt>does it sync between phone and computer?</dt>
+  <dd>not by itself. put the notes folder inside something that syncs (OneDrive, Dropbox, Google Drive for desktop, Syncthing) and point grail at it.</dd>
+  <dt>what happens to my notes if grail goes away?</dt>
+  <dd>nothing. they're markdown files. open them in any editor.</dd>
+  <dt>why does this page look like this?</dt>
+  <dd>no javascript, no cookies, no fonts to download, one stylesheet. the app is prettier, see fig. 1.</dd>
+  <dt>found a bug?</dt>
+  <dd><a href="https://github.com/MPKoutsoukos/grail/issues">open an issue</a> or mail <a href="mailto:hello@grailnotebook.com">hello@grailnotebook.com</a>.</dd>
+</dl>
 
-</main>
+<pre class="footer">
+--
+grail is free software (GPL-3.0) by MPKoutsoukos, made in Greece.
+<a href="https://github.com/MPKoutsoukos/grail">source</a> · <a href="privacy/">privacy</a> · <a href="mailto:hello@grailnotebook.com">hello@grailnotebook.com</a> · © 2026
+</pre>
 
-<footer>
-  <a href="privacy/">Privacy</a>
-  <a href="mailto:hello@grailnotebook.com">hello@grailnotebook.com</a>
-  <span>© 2026 MPKoutsoukos</span>
-</footer>
-
+</div>
 </body>
 </html>
