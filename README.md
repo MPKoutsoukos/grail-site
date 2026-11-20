@@ -8,7 +8,6 @@ no build step, no cookies, no analytics and no third-party requests; published b
 index.html           home page: plain HTML, terminal style (what, screenshots, how it works, download, changelog, faq)
 privacy/index.html   privacy policy  ->  https://grailnotebook.com/privacy/
 style.css            one stylesheet: the system's monospace font, xterm-256 colours, no JavaScript
-fonts/               the app's own fonts, served from the site, with their SIL Open Font License texts
 shots/               screenshots of the desktop and Android apps (WebP)
 icon.png, og.png     favicon and link preview
 CNAME                the custom domain: grailnotebook.com
@@ -31,5 +30,4 @@ the grail repo (`store/privacy.html`) the same.
 
 ## Licence
 
-The site's text and images: © 2026 MPKoutsoukos. The fonts keep their own licence (SIL Open Font License, see
-`fonts/*-OFL.txt`).
+The site's text and images: © 2026 MPKoutsoukos.
