@@ -5,9 +5,11 @@ The website for [grail](https://github.com/MPKoutsoukos/grail), at **https://gra
 no build step, no cookies, no analytics and no third-party requests; published by GitHub Pages from `main`.
 
 ```
-index.html           home page: plain HTML, terminal style (what, screenshots, how it works, download, changelog, faq)
+index.html           home page, terminal style: what, screenshots (android/desktop tabs), how it works, download, changelog, faq
+site.js              the small interactive bits: typed prompt, tabs, full-size screenshots, your-OS hint, tmux-style status bar
 privacy/index.html   privacy policy  ->  https://grailnotebook.com/privacy/
-style.css            one stylesheet: the system's monospace font, xterm-256 colours, no JavaScript
+style.css            one stylesheet: the system's monospace font, xterm-256 colours
+fonts/               Newsreader, only for the grail wordmark (the app icon's face), with its SIL Open Font License
 shots/               screenshots of the desktop and Android apps (WebP)
 icon.png, og.png     favicon and link preview
 CNAME                the custom domain: grailnotebook.com
@@ -30,4 +32,4 @@ the grail repo (`store/privacy.html`) the same.
 
 ## Licence
 
-The site's text and images: © 2026 MPKoutsoukos.
+The site's text and images: © 2026 MPKoutsoukos. Newsreader keeps its own licence (SIL Open Font License, `fonts/Newsreader-OFL.txt`).

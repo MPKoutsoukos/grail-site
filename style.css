@@ -1,8 +1,10 @@
 /* grailnotebook.com
  *
- * one stylesheet, no fonts to download, no javascript.
- * colours are from the xterm 256-colour palette.
+ * monospace everywhere except the wordmark (Newsreader, the app's own logo face).
+ * colours are from the xterm 256-colour palette; site.js adds the small interactive bits.
  */
+
+@font-face { font-family: Newsreader; src: url(fonts/Newsreader_400Regular.ttf); font-display: swap; }
 
 :root {
 	color-scheme: dark;
@@ -31,9 +33,9 @@ html, body {
 }
 
 #page {
-	max-width: 50rem;
+	max-width: 52rem;
 	margin: 0 auto;
-	padding: 1.5rem 1rem 3rem;
+	padding: 2rem 1rem 5rem; /* room for the status bar */
 }
 
 a { color: var(--link); text-underline-offset: .2em; }
@@ -47,17 +49,22 @@ b { color: #eeeeee; }
 pre { margin: 0; font: inherit; overflow-x: auto; }
 code { font: inherit; color: var(--head); }
 
-.logo { color: var(--head); font-size: 15px; line-height: 1.3; }
-.tagline { margin: .8rem 0 1rem; }
-
-nav {
-	padding: .4rem 0;
-	border-top: 1px dashed var(--line);
-	border-bottom: 1px dashed var(--line);
+/* the wordmark: the app icon's gold "grail" */
+.wordmark {
+	margin: 0;
+	font: 400 4.6rem/1 Newsreader, Georgia, serif;
+	letter-spacing: -.01em;
+	background: linear-gradient(180deg, #f2c681 15%, #c97a3c 95%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	width: fit-content;
 }
-nav a { margin-right: 1rem; white-space: nowrap; }
-nav a::before { content: "["; color: var(--dim); }
-nav a::after { content: "]"; color: var(--dim); }
+.tagline { margin: 1.2rem 0 .2rem; }
+.about { margin: 0 0 1rem; }
+.cursor { display: inline-block; width: .6em; height: 1.1em; margin-left: .15em; vertical-align: -.2em; background: var(--fg); animation: blink 1.1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
 
 h2 {
 	margin: 2.2rem 0 .7rem;
@@ -85,13 +92,31 @@ ul li::before { content: "- "; color: var(--dim); }
 .hash { color: var(--head); }
 
 figure { margin: 0 0 1.2rem; }
-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
-figcaption { color: var(--dim); font-size: 13px; margin-top: .3rem; }
-.phones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); cursor: zoom-in; }
+figcaption { color: var(--dim); font-size: 13px; margin-top: .35rem; }
+figcaption::before { content: "# "; }
+
+/* screenshot tabs: [android] [desktop] */
+.tabs { display: flex; gap: .4rem; margin-bottom: .9rem; }
+.tabs button { font: inherit; color: var(--dim); background: none; border: 1px solid var(--line); padding: .15rem .8rem; cursor: pointer; }
+.tabs button:hover { color: var(--fg); }
+.tabs button[aria-selected="true"] { color: var(--bg); background: var(--head); border-color: var(--head); }
+.panel[hidden] { display: none; }
+.strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(200px, 1fr); gap: 1rem; overflow-x: auto; padding-bottom: .6rem; scroll-snap-type: x mandatory; }
+.strip figure { margin: 0; scroll-snap-align: start; }
+.strip img { border-radius: 14px; }
+
+/* full-size viewer */
+#viewer { position: fixed; inset: 0; z-index: 20; display: grid; place-items: center; gap: .5rem; background: #000000e6; padding: 2rem; cursor: zoom-out; }
+#viewer[hidden] { display: none; }
+#viewer img { max-width: 100%; max-height: calc(100vh - 5rem); border: 1px solid var(--line); }
+#viewer p { margin: 0; font-size: 13px; }
 
 table { width: 100%; border-collapse: collapse; margin: .2rem 0 1rem; }
 th, td { text-align: left; padding: .35rem .8rem .35rem 0; border-bottom: 1px dashed var(--line); vertical-align: top; }
 th { color: var(--dim); font-weight: 400; }
+tr.yours td { background: #303030; }
+tr.yours td:first-child::before { content: "> "; color: var(--prompt); }
 
 .note { color: var(--dim); }
 .warn { color: var(--warn); font-weight: 700; }
@@ -104,12 +129,29 @@ dd { margin: .2rem 0 0 2ch; color: var(--fg); }
 .footer { margin-top: 3rem; color: var(--dim); font-size: 13px; white-space: pre-wrap; }
 .footer a { color: var(--dim); }
 
+/* the status bar, tmux-style */
+#status {
+	position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
+	display: flex; gap: 0; align-items: center; white-space: nowrap; overflow-x: auto;
+	background: #87d75f; color: #121212; font-size: 13px; line-height: 1.7;
+}
+#status a { color: inherit; text-decoration: none; padding: 0 .55rem; }
+#status a:hover { background: #5faf5f; }
+#status a.on { background: #121212; color: #87d75f; }
+#status a.on::after { content: "*"; }
+#status .sess { padding: 0 .7rem; background: #5faf5f; font-weight: 700; }
+#status .right { margin-left: auto; display: flex; align-items: center; }
+#status .right .dim { color: #1c1c1c; padding: 0 .7rem; }
+section { scroll-margin-top: 1rem; }
+
 @media (max-width: 600px) {
 	html, body { font-size: 14px; }
-	.logo { font-size: 11px; }
-	.phones { grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+	.wordmark { font-size: 3.6rem; }
+	.strip { grid-auto-columns: 62%; }
 	td:nth-child(3), th:nth-child(3) { display: none; }
+	#status .right { display: none; }
 }
+@media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
 
 /* the privacy page */
 main.doc { max-width: 50rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
